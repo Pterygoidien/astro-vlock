@@ -1,0 +1,13 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Footer from "/src/components/layout/footer/Footer.astro";
+
+const { container, title } = Astro.props;
+---
+
+<BaseLayout title={title}>
+  <main class="container p-8">
+    <slot />
+  </main>
+  <Footer />
+</BaseLayout>

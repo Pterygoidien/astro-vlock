@@ -1,0 +1,15 @@
+---
+const { container, styles } = Astro.props;
+---
+
+<section class={`py-10 ${styles}`}>
+  {
+    container ? (
+      <div class="container">
+        <slot />
+      </div>
+    ) : (
+      <slot />
+    )
+  }
+</section>
