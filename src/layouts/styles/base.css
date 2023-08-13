@@ -6,7 +6,7 @@
     :root {
        --color-primary: 125, 211, 252;
        --color-secondary: 45, 55, 72;
-       --color-tertiary: 0, 0%, 100%;
+       --color-tertiary: 0 0% 100%;
   }
   :root[data-theme='dark'] {
        --color-primary: 15, 23, 42;

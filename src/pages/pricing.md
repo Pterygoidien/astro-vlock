@@ -1,5 +1,5 @@
 ---
-layout: ../layouts/MainLayout.astro
+layout: ../layouts/MDLayout.astro
 title: "Tarifs"
 ---
 

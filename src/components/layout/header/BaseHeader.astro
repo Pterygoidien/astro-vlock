@@ -1,14 +1,20 @@
 ---
+import {getLangFromUrl, useTranslations} from '/src/i18n/utils';
+
+
 import ThemeToggler from './ThemeToggler.astro'
-import Logo from '~/assets/images/logo/logo-vlock.png'
+import Logo from '~/assets/images/logo/logo-vlock_window.png'
+import FrenchFlag from '~/assets/images/flags/france.png'
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 <style>
-    header {
+  header  {
         position:sticky;
         top:0;
-        z-index:5009;
-
-    }
+        z-index:2000;
+  }
     #burger-menu{
         position:relative;
         user-select:none;
@@ -55,6 +61,9 @@ import Logo from '~/assets/images/logo/logo-vlock.png'
         transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), sopacity 0.55s ease;
 
     }
+    :root[data-theme='light'] #burger-menu span {
+        background-color:hsl(210 10% 15%);
+    }
     #burger-menu__nav {
         position:absolute;
         top:28px;
@@ -71,8 +80,10 @@ import Logo from '~/assets/images/logo/logo-vlock.png'
         transform: translate(0%, 0);
     }
 </style>
-<header id="main-header" class="flex items-center justify-between bg-tertiary border-b-4 border-indigo-500 p-2">
-   
+<header id="main-header" class="bg-transparent">
+   <div id="main-header__container" class="container flex items-center justify-between bg-white dark:bg-tertiary px-5 py-5 rounded-b-xl opacity-95">
+
+  
         <div id="burger-menu" class="lg:hidden">
           <input type="checkbox" />
 
@@ -85,7 +96,7 @@ import Logo from '~/assets/images/logo/logo-vlock.png'
             class="bg-primary flex flex-col gap-4"
           >
             <li>
-              <a href="/">Accueil</a>
+              <a href="/">Accueil </a>
             </li>
             <li>
               <a href="/signup/">S'enregistrer</a>
@@ -93,30 +104,26 @@ import Logo from '~/assets/images/logo/logo-vlock.png'
 
           </ul>
         </div>
-        <img src={Logo.src} width={Logo.width} height={Logo.height} alt="Logo Vlock" class="w-24" />
+        <a href={`/${lang}/`}><img src={Logo.src} width={Logo.width} height={Logo.height} alt="Logo Vlock" class="w-[110px] ml-[-4.5px] lg:ml-0" /></a>
         <nav class="flex-grow uppercase font-bold hidden lg:block">
           <ul class="flex gap-3 items-center mx-auto justify-center self-center">
-                    <li><a href="/">Accueil</a></li>
-                    <li><a href="/pricing">Abonnements</a></li>
-                    <li><a href="/parkings/" class="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded dark:bg-sky-200 dark:text-black">Carte des parkings</a></li>
-                    <li><a href="#">A propos</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href={`/${lang}/`}>Accueil</a></li>
+                    <li><a href={`/${lang}/subscription`}>Abonnements</a></li>
+                    <li><a href={`/${lang}/parkings`} class="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded dark:bg-sky-200 dark:text-black">Carte des parkings</a></li>
+                    <li><a href={`/${lang}/about`}>A propos</a></li>
+                    <li><a href={`/${lang}/contact`}>Contact</a></li>
                    </ul>
         </nav>
         <div id="toggleSection">
-          <ul class="flex items-center gap-3">
+          <ul class="flex items-center gap-6">
             <li>
               <ThemeToggler />
             </li>
-            <li>
-              <a
-                href="/signup/"
-                class="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded hidden lg:block"
-              >
-                S'enregistrer
-            </a>
+            <li class=" gap-2 items-center hidden lg:flex">
+              <img src={FrenchFlag.src} width={FrenchFlag.width} height={FrenchFlag.height} alt="French Flag" class="w-5 h-5" /> Français
             </li>
+            
           </ul>
         </div>
-     
+      </div>
 </header>

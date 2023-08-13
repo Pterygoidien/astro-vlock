@@ -60,16 +60,16 @@
     
 
     
-    :root[data-theme='dark'] .sun-and-moon > .sun-beams {
+    :root[data-theme='light'] .sun-and-moon > .sun-beams {
         opacity: 0;
     }
     
-    :root[data-theme='dark'] .sun-and-moon > .moon > circle {
+    :root[data-theme='light'] .sun-and-moon > .moon > circle {
         transform: translateX(-7px);
     }
     
     @supports (cx: 1) {
-        [data-theme='dark'] .sun-and-moon > .moon > circle {
+        [data-theme='light'] .sun-and-moon > .moon > circle {
         transform: translateX(0);
         cx: 17;
         }
@@ -97,18 +97,18 @@
         }
     }
     
-    :root[data-theme='dark'] .sun-and-moon > .sun {
+    :root[data-theme='light'] .sun-and-moon > .sun {
         transform: scale(1.75);
         transition-timing-function: var(--ease-3);
         transition-duration: 0.25s;
     }
     
-    :root[data-theme='dark'] .sun-and-moon > .sun-beams {
+    :root[data-theme='light'] .sun-and-moon > .sun-beams {
         transform: rotateZ(-25deg);
         transition-duration: 0.15s;
     }
     
-    :root[data-theme='dark'] .sun-and-moon > .moon > circle {
+    :root[data-theme='light'] .sun-and-moon > .moon > circle {
         transition-delay: 0.25s;
         transition-duration: 0.5s;
     }

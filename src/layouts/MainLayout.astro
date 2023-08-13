@@ -6,7 +6,7 @@ const { container, title } = Astro.props;
 ---
 
 <BaseLayout title={title}>
-  <main class={container && "container"}>
+  <main class={['bg-secondary', container && "container"]}>
     <slot />
   </main>
   <Footer />
