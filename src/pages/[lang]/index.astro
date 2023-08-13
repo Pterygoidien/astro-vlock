@@ -27,6 +27,6 @@ const {Content} = await page.render();
 
 ---
 
-<MainLayout>
+<MainLayout title={page.data.title}>
     <Content />
 </MainLayout>

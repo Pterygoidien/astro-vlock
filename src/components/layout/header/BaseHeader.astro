@@ -4,7 +4,7 @@ import {getLangFromUrl, useTranslations} from '/src/i18n/utils';
 
 import ThemeToggler from './ThemeToggler.astro'
 import Logo from '~/assets/images/logo/logo-vlock_window.png'
-import FrenchFlag from '~/assets/images/flags/france.png'
+import LangSelect from './LangSelect.astro'
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -19,7 +19,6 @@ const t = useTranslations(lang);
         position:relative;
         user-select:none;
         z-index:103;
-        
     }
     #burger-menu a {
         text-decoration:none;
@@ -107,11 +106,11 @@ const t = useTranslations(lang);
         <a href={`/${lang}/`}><img src={Logo.src} width={Logo.width} height={Logo.height} alt="Logo Vlock" class="w-[110px] ml-[-4.5px] lg:ml-0" /></a>
         <nav class="flex-grow uppercase font-bold hidden lg:block">
           <ul class="flex gap-3 items-center mx-auto justify-center self-center">
-                    <li><a href={`/${lang}/`}>Accueil</a></li>
-                    <li><a href={`/${lang}/subscription`}>Abonnements</a></li>
-                    <li><a href={`/${lang}/parkings`} class="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded dark:bg-sky-200 dark:text-black">Carte des parkings</a></li>
-                    <li><a href={`/${lang}/about`}>A propos</a></li>
-                    <li><a href={`/${lang}/contact`}>Contact</a></li>
+                    <li><a href={`/${lang}/`}>{t('nav.home')}</a></li>
+                    <li><a href={`/${lang}/subscription`}>{t('nav.subscriptions')}</a></li>
+                    <li><a href={`/${lang}/parkings`} class="bg-sky-500 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded dark:bg-sky-200 dark:text-black">{t('nav.parking_map')}</a></li>
+                    <li><a href={`/${lang}/about`}>{t('nav.about')}</a></li>
+                    <li><a href={`/${lang}/contact`}>{t('nav.contact')}</a></li>
                    </ul>
         </nav>
         <div id="toggleSection">
@@ -120,7 +119,8 @@ const t = useTranslations(lang);
               <ThemeToggler />
             </li>
             <li class=" gap-2 items-center hidden lg:flex">
-              <img src={FrenchFlag.src} width={FrenchFlag.width} height={FrenchFlag.height} alt="French Flag" class="w-5 h-5" /> Français
+              <LangSelect>
+         
             </li>
             
           </ul>

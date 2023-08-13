@@ -35,7 +35,7 @@ export const ui = {
     "nav.my_account": "Mein Konto",
   },
   nl: {
-    "nav.home": "Startpagina",
+    "nav.home": "Home",
     "nav.about": "Over ons",
     "nav.contact": "Contact",
     "nav.subscriptions": "Abonnementen",
@@ -51,7 +51,7 @@ export const ui = {
     "nav.my_account": "Mi cuenta",
   },
   it: {
-    "nav.home": "Pagina iniziale",
+    "nav.home": "Casa",
     "nav.about": "Chi siamo",
     "nav.contact": "Contatto",
     "nav.subscriptions": "Abbonamenti",
