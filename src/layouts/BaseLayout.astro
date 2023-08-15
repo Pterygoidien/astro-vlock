@@ -1,12 +1,14 @@
 ---
 import BaseHeader from "../components/layout/header/BaseHeader.astro";
+import { getLangFromUrl } from "/src/i18n/utils";
 
 const { title } = Astro.props;
 import "./styles/base.css";
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

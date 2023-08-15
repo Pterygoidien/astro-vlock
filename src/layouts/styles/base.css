@@ -5,7 +5,7 @@
 @layer base {
     :root {
        --color-primary: 125, 211, 252;
-       --color-secondary: 45, 55, 72;
+       --color-secondary: 224 242 254;
        --color-tertiary: 0 0% 100%;
   }
   :root[data-theme='dark'] {

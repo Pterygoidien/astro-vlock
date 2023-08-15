@@ -3,10 +3,10 @@ title: "Home"
 description: "Private bike parking solutions in Wallonia"
 ---
 import Section from '/src/components/wrappers/Section.astro'
-import Logo from "~/assets/images/logo/logo-vlock_window.png";
-import MapLogo from "~/assets/images/map-ui.png";
-import SignUpLogo from "~/assets/images/signup-ui.png";
-import BikeLogo from "~/assets/images/bike-ui.png";
+import Logo from "~/assets/images/logo/logo-vlock_window.webp";
+import MapLogo from "~/assets/images/map-ui.webp";
+import SignUpLogo from "~/assets/images/signup-ui.webp";
+import BikeLogo from "~/assets/images/bike-ui.webp";
 
 
 <Section
@@ -20,7 +20,7 @@ import BikeLogo from "~/assets/images/bike-ui.png";
         Ik weet niet wat ik wil zeggen, dus blablasdfblablabla BLUBLUBLUB GNUGNUGNUGNUG
       </p>
 
-      <a href="/parkings/"
+      <a href="./parkings/"
         class="inline-block bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-4 rounded mt-6 mx-auto text-center">Bekij de kaart</a>
     </div>
   </Section>
@@ -29,18 +29,18 @@ import BikeLogo from "~/assets/images/bike-ui.png";
     <div class="flex gap-7 flex-wrap">
       <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
         <h3>Aanmelden</h3>
-        <img src={SignUpLogo.src} width={SignUpLogo.width} height={SignUpLogo.height} class="mx-auto" style="width:200px;" />
+        <img src={SignUpLogo.src} width={SignUpLogo.width} height={SignUpLogo.height} class="mx-auto" style="width:200px;" loading="lazy"  />
         <p>De eerste stap is om je bij ons te registreren. Dat kan niet eenvoudiger! Klik gewoon op de knop "Aanmelden" rechtsboven op de pagina en vul het formulier in. Vervolgens ontvang je een bevestigingsmail en kun je inloggen.</p>
       </article>
       <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
         <h3>Aanvraag indienen</h3>
-        <img src={MapLogo.src} width={MapLogo.width} height={MapLogo.height} class="mx-auto" style="width:200px;" />
+        <img src={MapLogo.src} width={MapLogo.width} height={MapLogo.height} class="mx-auto" style="width:200px;" loading="lazy"  />
         <p>Zodra je een account hebt aangemaakt, kun je een aanvraag indienen. In je profiel heb je het recht om drie adressen toe te voegen: één voor je woonadres en twee andere als interessante punten. Voor elk adres kun je een aanvraag indienen. Om een aanvraag te kunnen verwerken, moet je profiel eerst worden geverifieerd. Je kunt nog steeds tegelijkertijd een aanvraag indienen, maar deze wordt pas verwerkt nadat je profiel is aangemaakt en gevalideerd.</p>
       </article>
 
       <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
         <h3>Toegang tot de fietsdoos</h3>
-        <img src={BikeLogo.src} width={BikeLogo.width} height={BikeLogo.height} class="mx-auto" style="width:200px;" />
+        <img src={BikeLogo.src} width={BikeLogo.width} height={BikeLogo.height} class="mx-auto" style="width:200px;" loading="lazy" />
         <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam,
           sint! Et quasi quibusdam voluptatem, illo alias repellat ducimus nemo
           ratione dolores ab magnam molestiae quia veritatis rem voluptatibus

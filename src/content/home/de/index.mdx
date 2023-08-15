@@ -3,10 +3,10 @@ title: "Home"
 description: "Private bike parking solutions in Wallonia"
 ---
 import Section from '/src/components/wrappers/Section.astro'
-import Logo from "~/assets/images/logo/logo-vlock_window.png";
-import MapLogo from "~/assets/images/map-ui.png";
-import SignUpLogo from "~/assets/images/signup-ui.png";
-import BikeLogo from "~/assets/images/bike-ui.png";
+import Logo from "~/assets/images/logo/logo-vlock_window.webp";
+import MapLogo from "~/assets/images/map-ui.webp";
+import SignUpLogo from "~/assets/images/signup-ui.webp";
+import BikeLogo from "~/assets/images/bike-ui.webp";
 
 
 <Section
@@ -14,13 +14,13 @@ import BikeLogo from "~/assets/images/bike-ui.png";
   >
     <div class="container flex flex-col my-auto justify-between items-center gap-7">
       <h1 class="text-center mb-6">Willkommen bei <span class="hidden">v-lock</span></h1>
-      <img src={Logo.src} width={Logo.width} height={Logo.height} class="mx-auto" style="width:400px;" />
+      <img src={Logo.src} width={Logo.width} height={Logo.height} alt="Logo de vlock" class="mx-auto" style="width:400px;" />
       
       <p>
         Ich weiß nicht was ich sagen möchte, also blablasdfblablablabla BLUBLUBLUBLUB GNUGNUGNUGNUG
       </p>
 
-      <a href="/parkings/"
+      <a href="./parkings/"
         class="inline-block bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-4 rounded mt-6 mx-auto text-center">View the map</a>
     </div>
   </Section>
@@ -29,18 +29,18 @@ import BikeLogo from "~/assets/images/bike-ui.png";
     <div class="flex gap-7 flex-wrap">
       <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
         <h3>Registrieren Sie sich</h3>
-        <img src={SignUpLogo.src} width={SignUpLogo.width} height={SignUpLogo.height} class="mx-auto" style="width:200px;" />
+        <img src={SignUpLogo.src} alt="s'enregistrer sur notre site" width={SignUpLogo.width} height={SignUpLogo.height} class="mx-auto" style="width:200px;" loading="lazy"  />
         <p>Der erste Schritt besteht darin, sich bei uns zu registrieren. Es könnte nicht einfacher sein! Klicken Sie einfach auf die Schaltfläche "Anmelden" in der oberen rechten Ecke der Seite und füllen Sie das Formular aus. Sie erhalten dann eine Bestätigungs-E-Mail und können sich anmelden.</p>
       </article>
       <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
         <h3>Anfrage einreichen</h3>
-        <img src={MapLogo.src} width={MapLogo.width} height={MapLogo.height} class="mx-auto" style="width:200px;" />
+        <img src={MapLogo.src} alt="explorer la carte interactive" width={MapLogo.width} height={MapLogo.height} class="mx-auto" style="width:200px;" loading="lazy"  />
         <p>Sobald Sie ein Konto eingerichtet haben, können Sie eine Anfrage stellen. In Ihrem Profil können Sie drei Adressen hinzufügen: eine für Ihren Wohnsitz und zwei weitere als Points of Interest. Sie können für jede Adresse einen Antrag stellen. Damit ein Antrag bearbeitet werden kann, muss Ihr Profil zunächst überprüft werden. Sie können auch parallel einen Antrag stellen, der aber erst bearbeitet wird, wenn Ihr Profil erstellt und geprüft wurde. </p>
       </article>
 
       <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
         <h3>Zugang zur Fahrradbox</h3>
-        <img src={BikeLogo.src} width={BikeLogo.width} height={BikeLogo.height} class="mx-auto" style="width:200px;" />
+        <img src={BikeLogo.src} alt="se rendre vers l'un de nos vélobox" width={BikeLogo.width} height={BikeLogo.height} class="mx-auto" style="width:200px;" loading="lazy"  />
         <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam,
           sint! Et quasi quibusdam voluptatem, illo alias repellat ducimus nemo
           ratione dolores ab magnam molestiae quia veritatis rem voluptatibus

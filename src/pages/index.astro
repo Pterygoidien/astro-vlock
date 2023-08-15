@@ -7,7 +7,31 @@ import SignUpLogo from "~/assets/images/signup-ui.png";
 import BikeLogo from "~/assets/images/bike-ui.png";
 ---
 
-<!--<meta http-equiv="refresh" content="0;url=/en/" />-->
+<script client:only>
+  const languageCodes = {
+  fr: ['fr', 'fr-BE', 'fr-FR'],
+  en: ['en', 'en-US'],
+  de: ['de'],
+  nl: ['be-NL', 'nl']
+};
+
+const defaultLanguage = 'fr'; // Set your default language here
+
+const acceptLanguage = window.navigator.language || defaultLanguage;
+const languageCode = acceptLanguage.split('-')[0];
+
+let languageFolder = defaultLanguage;
+for (const [folder, codes] of Object.entries(languageCodes)) {
+  if (codes.includes(languageCode)) {
+    languageFolder = folder;
+    break;
+  }
+}
+window.location.href = `/${languageFolder}/`;
+</script>
+
+
+
 <MainLayout title="Home">
   <Section
     styles="bg-sky-200 dark:bg-sky-900 py-7 min-h-[70vh] flex justify-center overflow-hidden"

@@ -3,7 +3,7 @@ import {getLangFromUrl, useTranslations} from '/src/i18n/utils';
 
 
 import ThemeToggler from './ThemeToggler.astro'
-import Logo from '~/assets/images/logo/logo-vlock_window.png'
+import Logo from '~/assets/images/logo/logo-vlock.webp'
 import LangSelect from './LangSelect.astro'
 
 const lang = getLangFromUrl(Astro.url);
@@ -94,14 +94,16 @@ const t = useTranslations(lang);
             id="burger-menu__nav"
             class="bg-primary flex flex-col gap-4"
           >
-            <li>
-              <a href="/">Accueil </a>
-            </li>
-            <li>
-              <a href="/signup/">S'enregistrer</a>
-            </li>
+            <li><a href={`/${lang}/`}>{t('nav.home')}</a></li>
+                    <li><a href={`/${lang}/subscription`}>{t('nav.subscriptions')}</a></li>
+                    <li><a href={`/${lang}/parkings`}>{t('nav.parking_map')}</a></li>
+                    <li><a href={`/${lang}/about`}>{t('nav.about')}</a></li>
+                    <li><a href={`/${lang}/contact`}>{t('nav.contact')}</a></li>
+                    <li><LangSelect /></li>
+                    
 
           </ul>
+          
         </div>
         <a href={`/${lang}/`}><img src={Logo.src} width={Logo.width} height={Logo.height} alt="Logo Vlock" class="w-[110px] ml-[-4.5px] lg:ml-0" /></a>
         <nav class="flex-grow uppercase font-bold hidden lg:block">

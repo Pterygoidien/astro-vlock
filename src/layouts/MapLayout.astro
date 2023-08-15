@@ -1,10 +1,10 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 
-const { container } = Astro.props;
+const { container, title } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout title={title}>
   <main>
     <slot />
   </main>

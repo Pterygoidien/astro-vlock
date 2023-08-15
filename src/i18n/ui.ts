@@ -3,8 +3,6 @@ export const languages = {
   fr: "Français",
   de: "Deutsch",
   nl: "Nederlands",
-  es: "Español",
-  it: "Italiano",
 };
 
 export const defaultLang = "fr";
@@ -41,21 +39,5 @@ export const ui = {
     "nav.subscriptions": "Abonnementen",
     "nav.parking_map": "Parkeerkaart",
     "nav.my_account": "Mijn account",
-  },
-  es: {
-    "nav.home": "Inicio",
-    "nav.about": "Acerca de",
-    "nav.contact": "Contacto",
-    "nav.subscriptions": "Suscripciones",
-    "nav.parking_map": "Mapa de parkings",
-    "nav.my_account": "Mi cuenta",
-  },
-  it: {
-    "nav.home": "Casa",
-    "nav.about": "Chi siamo",
-    "nav.contact": "Contatto",
-    "nav.subscriptions": "Abbonamenti",
-    "nav.parking_map": "Mappa dei parcheggi",
-    "nav.my_account": "Il mio account",
   },
 } as const;
