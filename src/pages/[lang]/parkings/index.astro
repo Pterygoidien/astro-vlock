@@ -1,0 +1,32 @@
+---
+import MapLayout from "/src/layouts/MapLayout.astro";
+import LeafletMap from "/src/components/map/LeafletMap.astro";
+import { getLangFromUrl } from "/src/i18n/utils";
+import { languages } from "/src/i18n/ui";
+
+
+
+const lang = getLangFromUrl(Astro.url);
+
+export async function getStaticPaths() {
+
+  const paramsList = Object.keys(languages).map((lang) => {
+    return { params: { lang } };
+  });
+  return paramsList;
+}
+
+
+---
+
+
+
+
+<MapLayout title="Map">
+  <div class="text-black" style="height:100%">
+ <LeafletMap />
+</div>
+
+   
+
+</MapLayout>
