@@ -1,15 +1,19 @@
 ---
 import "leaflet/dist/leaflet.css"
 import "/src/assets/libs/css/leaflet.photon.css"
+import "./clusters.css"
+import {getLangFromUrl, useTranslations} from '/src/i18n/utils';
 
-const data = await fetch('http://127.0.0.1:8000/api/map/mapitems/');
-const mapitems = await data.json();
-console.log(mapitems)
 
 const gpsCoordinates = {
     lat: 50.64250,
     long: 5.58570
 }
+const mapItems = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const placeholder = t('map.geocoder_placeholder')
 
 ---
 <!--
@@ -18,42 +22,74 @@ const gpsCoordinates = {
  -->
 <div id="map" style="max-height:calc(100vh-75px); height:100%; overflow:hidden;"></div>
 
- <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
+<script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="">import { N } from "../../../dist/server/renderers.mjs";
+</script>
 <script is:inline src="/src/assets/libs/js/leaflet.photon.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.min.js"></script> 
 
 
 
-<script data-map={mapitems}>
+<script define:vars={{mapItems, placeholder}}>
+
     const map = L.map('map', {
-        photonControl:true,
-        photonControlOptions: {
-            placeHolder:'Recherchez...',
-            position:'topright',
+        photonControl: true,
+        photonControlOptions:{
+            placeholder: placeholder,
+            position:'topright'
         }
-    }).setView([50.64250, 5.58570,], 13)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {    
-        attribution:'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    }).setView([50.64250, 5.58570,], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
         minZoom: 7,
-        maxZoom: 20
+        maxZoom: 19
     }).addTo(map);
+    
+    const rackMarkers = L.markerClusterGroup({
+        chunkedLoading:true, 
+        iconCreateFunction: function (cluster) {
+        const childCount = cluster.getChildCount();
+        let c = ' rclusters-';
+        if (childCount < 10) {
+            c += 'small';
+        } else if (childCount < 100) {
+            c += 'medium';
+        } else {
+            c += 'large';
+        }
+        return new L.DivIcon({
+            html: '<div><span>' + childCount + '</span></div>',
+            className: 'mclusters' + c,
+            iconSize: new L.Point(70, 70)
+        });
+    },
+    maxClusterRadius: 80,
+    zIndexOffset: 992,
+    })
+    const rackIcon = L.icon({
+        iconUrl: '/assets/mapIcons/marker-blue.e938bc99.svg',
+        shadowUrl: 'https://unpkg.com/leaflet@1.4.0/dist/images/marker-shadow.png',
+        shadowSize: [40, 60],
+        shadowAnchor: [18, 80],
+        iconSize: [60, 60],
+        iconAnchor: [40, 65],
+        popupAnchor: [-2, -40],
+    });
 
-     try {
-        navigator.geolocation.getCurrentPosition((position) => {
-            const { latitude, longitude } = position.coords;
-            map.setView([latitude, longitude], 18);
-            L.marker([latitude, longitude]).addTo(map);
-        })
-    } catch (error) {
-        console.log(error);
-    }
+    mapItems.mapItems.forEach(mapItem => {
+        let coordinates = mapItem.coordinates.split(',');
+        let marker = L.marker(
+            L.latLng(coordinates[0], coordinates[1]),
+            {
+                icon:rackIcon,
+                title:mapItem.adrdess
+            }
+        ).bindPopup(
+        `<h4 class="font-semibold font-lg">${mapItem.address}</h4><p>${mapItem.description}</p><p><span class="font-semibold">Nombre</span>: ${mapItem.capacity / 2}</p><p><span class="font-semibold">Places disponibles:</span> ${mapItem.capacity}</p>`
+    ).addTo(rackMarkers);
+    })
 
-    console.log(this.dataset.mapitems[0].id)
-
-
-
-
-
+    rackMarkers.addTo(map);
 </script>
 
 

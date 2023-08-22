@@ -3,12 +3,7 @@ import {getLangFromUrl} from '/src/i18n/utils';
 const lang = getLangFromUrl(Astro.url); 
 
 ---
-
-
-
-
-
-    <select id="lang-select" class="bg-tertiary border-[1px] rounded-xl px-2 py-[5px] border-slate-800">
+    <select class="bg-tertiary border-[1px] rounded-xl px-2 py-[5px] border-slate-800 lang-select">
         <option value="fr">Français</option>
         <option value="nl">Nederlands</option>
         <option value="en">English</option>
@@ -17,23 +12,21 @@ const lang = getLangFromUrl(Astro.url);
     </select>
 
 <script define:vars={{lang}}>
-    const langSelectOptions = document.getElementById('lang-select');
-    const options = langSelectOptions.options;
+        const langSelectOptions = document.querySelectorAll('.lang-select');
+
+for (const langSelect of langSelectOptions) {
+    const options = langSelect.options;
     for (let i = 0; i < options.length; i++) {
-        if (langSelectOptions[i].value === lang) {
-            langSelectOptions[i].selected = true;
+        if (langSelect[i].value === lang) {
+            langSelect[i].selected = true;
             break;
         }
     }
 
-    langSelectOptions.addEventListener('change', ()=>{
+    langSelect.addEventListener('change', () => {
         const path = window.location.pathname;
-        const newPath = path.replace(/\/(fr|en|de|nl)\//, `/${langSelectOptions.value}/`);
+        const newPath = path.replace(/\/(fr|en|de|nl)\//, `/${langSelect.value}/`);
         window.location.pathname = newPath;
-        
-        }
-
-    )
-
-
+    });
+}
 </script>

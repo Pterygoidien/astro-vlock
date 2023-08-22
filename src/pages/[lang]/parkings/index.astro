@@ -4,10 +4,7 @@ import LeafletMap from "/src/components/map/LeafletMap.astro";
 import { getLangFromUrl } from "/src/i18n/utils";
 import { languages } from "/src/i18n/ui";
 
-
-
 const lang = getLangFromUrl(Astro.url);
-
 export async function getStaticPaths() {
 
   const paramsList = Object.keys(languages).map((lang) => {
@@ -16,17 +13,18 @@ export async function getStaticPaths() {
   return paramsList;
 }
 
+const mapItems_fetch = await fetch('http://127.0.0.1:8000/api/map/mapitems/');
+const mapItems = await mapItems_fetch.json();
 
 ---
-
-
-
+<style is:global>
+  #map {
+    color:black;
+  }
+</style>
 
 <MapLayout title="Map">
-  <div class="text-black" style="height:100%">
- <LeafletMap />
-</div>
 
-   
+ <LeafletMap mapItems={mapItems} />
 
 </MapLayout>
