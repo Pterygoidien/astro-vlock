@@ -1,47 +1,15 @@
-# Astro Starter Kit: Minimal
+# Documentation de Astro
+Astro.js est un framework qui vise à la génération de contenu statique avec le moins de javascript possible, dans le but de rendre le chargement des pages le plus rapide possible. 
 
-```
-npm create astro@latest -- --template minimal
-```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 1.1 Dépendances 
+Astro.js tourne sur Node.js (ou deno), un runtime javascript. Il est donc nécessaire de posséder node.js et le package manager (npm, *node package manager*).
 
-## 🚀 Project Structure
+## 2.2 Environnement de développement 
 
-Inside of your Astro project, you'll see the following folders and files:
+Pour faire tourner Astro, il vous faudra soit installer Node.js directement sur votre machine, soit passer par un containeur utilitaire qui contiendra Node.js et toutes les dépendances annexes.
 
-```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+[Lien de téléchargement](https://nodejs.org/fr/download)  
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Si vous désirez ne pas installer Node.js sur votre machine et préférez passer par un containeur utilitaire qui fera tourner Node.js via docker, référez à la section "2.1 Faire tourner astro via docker" plus bas. 
