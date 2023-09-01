@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import Footer from "/src/components/layout/footer/Footer.astro";
+import Footer from "@components/layout/footer/Footer.astro";
 
 const { container, title } = Astro.props;
 ---
@@ -8,9 +8,8 @@ const { container, title } = Astro.props;
 <BaseLayout title={title}>
   <main class="bg-secondary p-8">
     <div class="container">
-<slot />
+      <slot />
     </div>
-    
   </main>
   <Footer />
 </BaseLayout>

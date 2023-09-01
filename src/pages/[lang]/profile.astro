@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import ProfileForm from "../../components/forms/profile.astro";
+import type { IFields } from "../../utils/form-generator/solid/formGenerator";
+import typeMapper from "../../utils/type-mapper/djangoForm-mapper";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("home");
+
+  const paths = pages.map((page) => {
+    const [lang, ...slug] = page.slug.split("/");
+    return {
+      params: {
+        lang,
+        slug: slug.join("/") || undefined,
+      },
+      props: page,
+    };
+  });
+  return paths;
+}
+const { lang, slug } = Astro.params;
+---
+
+<MainLayout title="Profile">
+  <section class="container mt-5 p-4 bg-secondary rounded-lg">
+    <ProfileForm />
+  </section>
+</MainLayout>

@@ -2,11 +2,12 @@
 title: "Accueil"
 description: "Solution de parkings vélos"
 ---
-import Section from '/src/components/wrappers/Section.astro'
-import Logo from "~/assets/images/logo/logo-vlock_window.webp";
-import MapLogo from "~/assets/images/map-ui.webp";
-import SignUpLogo from "~/assets/images/signup-ui.webp";
-import BikeLogo from "~/assets/images/bike-ui.webp";
+import {Image} from 'astro:assets';
+import Section from '@components/wrappers/Section.astro';
+import Logo from "@assets/images/logo/logo-vlock_window.png";
+import MapLogo from "@assets/images/map-ui.png";
+import SignUpLogo from "@assets/images/signup-ui.png";
+import BikeLogo from "@assets/images/bike-ui.png";
 
 
 <Section
@@ -14,7 +15,7 @@ import BikeLogo from "~/assets/images/bike-ui.webp";
   >
     <div class="container flex flex-col my-auto justify-between items-center gap-7">
       <h1 class="text-center mb-6">Bienvenue chez <span class="hidden">v-lock</span></h1>
-      <img src={Logo.src} alt="Logo vlock" width={Logo.width} height={Logo.height} class="mx-auto" style="width:400px;"  />
+      <Image src={Logo} alt="Logo vlock" class="mx-auto" style="width:400px;"  />
       
       <p>
         Je sais pas quoi dire alors blablasdfblablabla BLUBLUBLUBLUBLUB GNUGNUGNUGNUG
@@ -29,7 +30,7 @@ import BikeLogo from "~/assets/images/bike-ui.webp";
     <div class="flex gap-7 flex-wrap">
       <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
         <h3>Inscrivez-vous</h3>
-        <img src={SignUpLogo.src} alt="S'enregistrer sur le site" width={SignUpLogo.width} height={SignUpLogo.height} class="mx-auto" style="width:200px;"  loading="lazy" />
+        <Image src={SignUpLogo} alt="S'enregistrer sur le site" class="mx-auto" style="width:200px;"  loading="lazy" />
         <p>
           La première étape est de s'enregistrer chez nous. Pour cela, rien de
           plus simple ! Il vous suffit de cliquer sur le bouton "S'inscrire" en
@@ -39,7 +40,7 @@ import BikeLogo from "~/assets/images/bike-ui.webp";
       </article>
       <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
         <h3>Introduire une demande</h3>
-        <img src={MapLogo.src} alt="Explorer la carte interactive et introduire une demande" width={MapLogo.width} height={MapLogo.height} class="mx-auto" style="width:200px;" loading="lazy" />
+        <Image src={MapLogo} alt="Explorer la carte interactive et introduire une demande" class="mx-auto" style="width:200px;" loading="lazy" />
         <p>
           Une fois inscrit(e), vous pouvez introduire une demande. Dans votre
           profile, vous avez droit d'ajouter trois adresses : une pour votre
@@ -53,7 +54,7 @@ import BikeLogo from "~/assets/images/bike-ui.webp";
       </article>
       <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
         <h3>Accéder au vélo-box</h3>
-        <img src={BikeLogo.src} alt="Se rendre dans un vélobox" width={BikeLogo.width} height={BikeLogo.height} class="mx-auto" style="width:200px;" loading="lazy"  />
+        <Image src={BikeLogo} alt="Se rendre dans un vélobox" class="mx-auto" style="width:200px;" loading="lazy"  />
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam,
           sint! Et quasi quibusdam voluptatem, illo alias repellat ducimus nemo

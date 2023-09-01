@@ -38,3 +38,14 @@ html, body {
    display:grid;
    grid-template-rows: auto 1fr auto;
 }
+
+input, textarea, button {
+   font-family: inherit;
+   font-size: inherit;
+   color: black;
+   padding:1rem;
+}
+
+[data-theme='dark'] button {
+    color: white;
+}

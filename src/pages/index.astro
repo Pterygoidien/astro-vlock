@@ -1,14 +1,16 @@
 ---
-import MainLayout from "/src/layouts/MainLayout.astro";
-import Section from "/src/components/wrappers/Section.astro";
-import Logo from "~/assets/images/logo/logo-vlock_window.png";
-import MapLogo from "~/assets/images/map-ui.png";
-import SignUpLogo from "~/assets/images/signup-ui.png";
-import BikeLogo from "~/assets/images/bike-ui.png";
+import { Image } from "astro:assets";
+
+import MainLayout from "../layouts/MainLayout.astro";
+import Section from "../components/wrappers/Section.astro";
+import Logo from "../assets/images/logo/logo-vlock_window.webp";
+import MapLogo from "../assets/images/map-ui.webp";
+import SignUpLogo from "../assets/images/signup-ui.webp";
+import BikeLogo from "../assets/images/bike-ui.webp";
 ---
 
 <script client:only>
-  const languageCodes = {
+const languageCodes = {
   fr: ['fr', 'fr-BE', 'fr-FR'],
   en: ['en', 'en-US'],
   de: ['de'],
@@ -31,64 +33,3 @@ window.location.href = `/${languageFolder}/`;
 </script>
 
 
-
-<MainLayout title="Home">
-  <Section
-    styles="bg-sky-200 dark:bg-sky-900 py-7 min-h-[70vh] flex justify-center overflow-hidden"
-  >
-    <div class="container flex flex-col my-auto justify-between gap-7">
-      <h1 class="text-center mb-6">Bienvenue chez <span class="hidden">v-lock</span></h1>
- <img src={Logo.src} width={Logo.width} height={Logo.height} class="mx-auto" style="width:400px;" />
-      
-
-      <p class="text-center">
-        Je sais pas quoi dire alors blablablablabla
-      </p>
-
-      <a
-        href="/parkings/"
-        class="inline-block bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-4 rounded mt-6 mx-auto text-center"
-        >Voir les emplacements</a
-      >
-    </div>
-  </Section>
-  <Section styles="bg-secondary py-12" container>
-    <h2>Comment ça marche ?</h2>
-    <div class="flex gap-7 flex-wrap">
-      <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
-        <h3>Inscrivez-vous</h3>
-        <img src={SignUpLogo.src} width={SignUpLogo.width} height={SignUpLogo.height} class="mx-auto" style="width:200px;" />
-        <p>
-          La première étape est de s'enregistrer chez nous. Pour cela, rien de
-          plus simple ! Il vous suffit de cliquer sur le bouton "S'inscrire" en
-          haut à droite de la page, et de remplir le formulaire. Vous recevrez
-          ensuite un mail de confirmation, et vous pourrez vous connecter.
-        </p>
-      </article>
-      <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
-        <h3>Introduire une demande</h3>
-        <img src={MapLogo.src} width={MapLogo.width} height={MapLogo.height} class="mx-auto" style="width:200px;" />
-        <p>
-          Une fois inscrit(e), vous pouvez introduire une demande. Dans votre
-          profile, vous avez droit d'ajouter trois adresses : une pour votre
-          domicile/adresse de domiciliation, et deux autres comme points
-          d'intérêt. Pour chaque adresse, il est possible d'introduire une
-          demande. Afin qu'une demande soit traitée, votre profil doit avoir été
-          vérifié au préalable. Vous pourrez tout de même introduire une demande
-          en parallèle, mais elle ne sera prise en compte qu'une fois le profil
-          créé et validé.
-        </p>
-      </article>
-      <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
-        <h3>Accéder au vélo-box</h3>
-        <img src={BikeLogo.src} width={BikeLogo.width} height={BikeLogo.height} class="mx-auto" style="width:200px;" />
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam,
-          sint! Et quasi quibusdam voluptatem, illo alias repellat ducimus nemo
-          ratione dolores ab magnam molestiae quia veritatis rem voluptatibus
-          fuga harum? Tempore tenetur ullam nihil accusantium adipisci as
-        </p>
-      </article>
-    </div>
-  </Section>
-</MainLayout>

@@ -2,11 +2,13 @@
 title: "Home"
 description: "Private bike parking solutions in Wallonia"
 ---
-import Section from '/src/components/wrappers/Section.astro'
-import Logo from "~/assets/images/logo/logo-vlock_window.webp";
-import MapLogo from "~/assets/images/map-ui.webp";
-import SignUpLogo from "~/assets/images/signup-ui.webp";
-import BikeLogo from "~/assets/images/bike-ui.webp";
+import {Image} from 'astro:assets';
+import Section from '@components/wrappers/Section.astro';
+import Logo from "@assets/images/logo/logo-vlock_window.png";
+import MapLogo from "@assets/images/map-ui.png";
+import SignUpLogo from "@assets/images/signup-ui.png";
+import BikeLogo from "@assets/images/bike-ui.png";
+
 
 
 <Section
@@ -14,8 +16,7 @@ import BikeLogo from "~/assets/images/bike-ui.webp";
   >
     <div class="container flex flex-col my-auto justify-between items-center gap-7">
       <h1 class="text-center mb-6">Welcome to <span class="hidden">v-lock</span></h1>
-      <img src={Logo.src}  alt="vlock logo" width={Logo.width} height={Logo.height} class="mx-auto" style="width:400px;"  />
-      
+      <Image src={Logo} alt="Logo vlock" class="mx-auto" style="width:400px;"  />
       <p>
         I don't know what to say so blablasdfblablablabla BLUBLUBLUBLUB GNUGNUGNUGNUG
       </p>
@@ -29,21 +30,24 @@ import BikeLogo from "~/assets/images/bike-ui.webp";
     <div class="flex gap-7 flex-wrap">
       <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
         <h3>Sign up</h3>
-        <img src={SignUpLogo.src} alt="sign up" width={SignUpLogo.width} height={SignUpLogo.height} class="mx-auto" style="width:200px;" loading="lazy"  />
+        <Image src={SignUpLogo} alt="S'enregistrer sur le site" class="mx-auto" style="width:200px;"  loading="lazy" />
+       
         <p>
           The first step is to register with us. It couldn't be easier! Just click on the "Sign up" button in the top right-hand corner of the page, and fill in the form. You'll then receive a confirmation e-mail, and you can log in.
         </p>
       </article>
       <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
         <h3>Submit a request</h3>
-        <img src={MapLogo.src} alt="explore our interactive map" width={MapLogo.width} height={MapLogo.height} class="mx-auto" style="width:200px;" loading="lazy"  />
+        <Image src={MapLogo} alt="Explorer la carte interactive et introduire une demande" class="mx-auto" style="width:200px;" loading="lazy" />
+        
         <p>
           Once you've created an account, you can submit a request. In your profile, you are entitled to add three addresses: one for your home/residential address, and two others as points of interest. You can submit a request for each address. In order for a request to be processed, your profile must first be verified. You can still submit a request in parallel, but it will only be processed once your profile has been created and validated.
         </p>
       </article>
       <article class="flex flex-col basis-1/4 flex-auto min-w-[240px]">
         <h3>Access to the bike box</h3>
-        <img src={BikeLogo.src} alt="Go to your bike parking" width={BikeLogo.width} height={BikeLogo.height} class="mx-auto" style="width:200px;" loading="lazy"  />
+        <Image src={BikeLogo} alt="Se rendre dans un vélobox" class="mx-auto" style="width:200px;" loading="lazy"  />
+      
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam,
           sint! Et quasi quibusdam voluptatem, illo alias repellat ducimus nemo

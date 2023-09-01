@@ -31,11 +31,12 @@ const placeholder = t('map.geocoder_placeholder')
 
 <script define:vars={{mapItems, placeholder}}>
 
+
     const map = L.map('map', {
         photonControl: true,
         photonControlOptions:{
             placeholder: placeholder,
-            position:'topright'
+            position:'topright',    
         }
     }).setView([50.64250, 5.58570,], 13);
 

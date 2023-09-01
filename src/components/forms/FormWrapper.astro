@@ -1,0 +1,54 @@
+---
+import FormGenerator from "../../utils/form-generator/solid/formGenerator";
+import type { IFields } from "../../utils/form-generator/solid/formGenerator";
+import typeMapper from "../../utils/type-mapper/djangoForm-mapper";
+import fetchTS from "../../utils/fetch/fetch-ts";
+import type {
+  IAPIForm,
+  IAPIField,
+} from "../../utils/interfaces/form.interface";
+
+const { url } = Astro.props;
+
+const form: IAPIForm = await fetchTS(url, {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+const formFields = form.fields.map((field: IAPIField) => {
+  const new_field: IFields = {
+    name: field.name,
+    label: field.label,
+    type: field.name === "password1" ? "password" : typeMapper(field.type),
+    required: field.required,
+    help_text: field.help_text,
+    validation: {
+      minlength: 1,
+      maxlength: 600,
+    },
+  };
+
+  if (field.type === "TypedChoiceField" && field.choices)
+    new_field.options = field.choices;
+
+  if (field.widget_attrs) {
+    if (field.widget_attrs.autocomplete)
+      new_field.autocomplete = field.widget_attrs.autocomplete;
+    if (field.widget_attrs.placeholder)
+      new_field.placeholder = field.widget_attrs.placeholder;
+    if (new_field.validation && field.widget_attrs.maxlength)
+      new_field.validation.maxlength = field.widget_attrs.maxlength;
+    if (new_field.validation && field.widget_attrs.minlength)
+      new_field.validation.minlength = field.widget_attrs.minlength;
+  }
+
+  return new_field;
+});
+
+console.log(formFields);
+console.log(formFields[3]);
+---
+
+<FormGenerator fields={formFields} client:load />
