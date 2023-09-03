@@ -8,9 +8,6 @@ import prefetch from "@astrojs/prefetch";
 
 // https://astro.build/config
 export default defineConfig({
-  experimental: {
-    assets: true
-  },
   output: 'hybrid',
   integrations: [tailwind({
     applyBaseStyles: false
